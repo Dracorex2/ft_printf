@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/12 19:43:00 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:27:07 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 int ft_fmtset(t_flag	flag, va_list ap)
 {
 	int i;
+
+	i = 0;
 	if (flag.fmt == 's')
+		i = ft_string(va_arg(ap, char *), flag);
+	elif (flag.fmt == 'd' && flag.fmt == 'i')
+		i = ft_string(va_arg(ap, char *), flag);
+	elif (flag.fmt == 'c')
 		i = ft_string(va_arg(ap, char *), flag);
 	return (i);
 }
@@ -30,15 +36,16 @@ int ft_printf(const char *format, ...)
 	
 	i = -1;
 	tot = 0;
-	while (format[++i])
+	while (format[++i] != 0)
 	{
 		if (format[i] == '%')
-			flag = ft_parse(&format[i++], ap);
-		while (!ft_ischarset(format[i]))
-			i++;
-		tot += ft_fmtset(flag, ap);
-		write(1, &format[i], 1);
-		tot ++;
+		{
+			flag = ft_parse((char *)&format[i + 1], ap);
+			i += flag.size + 1;
+			tot += ft_fmtset(flag, ap);
+		}
+		else
+			tot += ft_putchar(format[i]);
 	}
 	va_end(ap);
 	return (tot);

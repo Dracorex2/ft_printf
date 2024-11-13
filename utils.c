@@ -6,19 +6,16 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:27:13 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/12 19:33:01 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:42:12 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putchar(char s)
 {
-	size_t	i;
-
-	i = -1;
-	while (s[++i])
-		write(1, &s[i], 1);
+	write(1, &s, 1);
+	return (1);
 }
 
 int	ft_atoi(const char *nptr)
@@ -50,4 +47,14 @@ bool	ft_ischarset(char c)
 		if (charsert[i] == c)
 			return (1);
 	return (0);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

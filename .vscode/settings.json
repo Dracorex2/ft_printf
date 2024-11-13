@@ -3,6 +3,7 @@
 		"ft_printf.h": "c",
 		"stdarg.h": "c",
 		"stdlib.h": "c",
-		"stdbool.h": "c"
+		"stdbool.h": "c",
+		"stdio.h": "c"
 	}
 }

@@ -6,7 +6,7 @@ SRCS_DIR = srcs/
 
 NAME = libftprintf.a
 
-FILES = ft_printf.c  utils.c             
+FILES = ft_printf.c  utils.c  ft_string.c  ft_parse.c
 
 
 OBJS = $(FILES:.c=.o)

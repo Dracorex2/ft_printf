@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 14:34:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/13 20:21:39 by lucmansa         ###   ########.fr       */
+/*   Created: 2024/11/13 17:36:49 by lucmansa          #+#    #+#             */
+/*   Updated: 2024/11/13 19:44:43 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+int	ft_space(int nb)
 {
 	int i;
 
-	i = ft_printf("|%90.10s|", "cho");
-	printf("\no = %i", i);
+	i = 0;
+	while (nb--)
+		i += ft_putchar(' ');
+	return (i);
 }
-    
+
+int ft_min(int a, int b) 
+{
+	if (a < b)
+		  return a;
+	return b;
+}
