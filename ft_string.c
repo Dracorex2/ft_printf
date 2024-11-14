@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:43:24 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 14:03:12 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_string(char *str, t_flag	flag)
 	len = 0;
 	if (!flag.minus && flag.first)
 		 len += ft_putstringplus(flag, str);
-	elif (flag.minus && flag.first)
+	else if (flag.minus && flag.first)
 		len += ft_putstringmin(flag, str);
 	else
 		len += ft_strprntchr(flag, str);

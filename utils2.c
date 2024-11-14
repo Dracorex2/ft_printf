@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:36:49 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 16:01:51 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_nbrlen_i(int nb)
 {
 	if (nb == (int)0x80000000)
 		return (11);
-	elif (nb < 0)
+	else if (nb < 0)
 		return (1 + ft_nbrlen_i(-nb));
 	else
 		return (1 + ft_nbrlen_i(nb / 10));

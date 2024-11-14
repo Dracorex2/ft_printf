@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 17:23:13 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@ int ft_fmtset(t_flag	flag, va_list ap)
 	i = 0;
 	if (flag.fmt == 'c')
 		i = ft_char(va_arg(ap, int), flag);
-	elif (flag.fmt == 's')
+	else if (flag.fmt == 's')
 		i = ft_string(va_arg(ap, char *), flag);
-	elif (flag.fmt == 'p')
+	else if (flag.fmt == 'p')
 		i = ft_pointer((uintmax_t)va_arg(ap, void *), flag);
-	elif (flag.fmt == 'd' && flag.fmt == 'i')
+	else if (flag.fmt == 'd' || flag.fmt == 'i')
 		i = ft_string(va_arg(ap, char *), flag);
-	elif (flag.fmt == 'u')
+	else if (flag.fmt == 'u')
 		i = ft_string(va_arg(ap, char *), flag);
-	elif (flag.fmt == 'x' && flag.fmt == 'X')
-		i = ft_string(va_arg(ap, unsigned int), flag);
-	elif (flag.fmt == '%')
+	else if (flag.fmt == 'x')
+		i = ft_hex(va_arg(ap, unsigned int), flag);
+	else if (flag.fmt == 'X')
+		i = ft_hex_maj(va_arg(ap, unsigned int), flag);
+	else if (flag.fmt == '%')
 		i = ft_putchar('%');
 	return (i);
 }
