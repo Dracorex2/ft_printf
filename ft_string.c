@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:43:24 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:15:56 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strprntchr(t_flag flag, char *str)
 
 	len = 0;
 	i = -1;
-	if (flag.sec && flag.sec < ft_strlen(str))
+	if (flag.sec && (size_t)flag.sec < ft_strlen(str))
 	{
 		while (flag.sec--)
 			len += ft_putchar(str[++i]);

@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:36:49 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:16:28 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int ft_max(int a, int b)
 
 int	ft_nbrlen_u(uintmax_t nb, int base)
 {
-	if (nb < base)
+	if (nb < (uintmax_t)base)
 		return (1);
 	else
 		return (1 + ft_nbrlen_u(nb / base, base));

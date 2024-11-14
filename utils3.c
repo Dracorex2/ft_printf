@@ -6,11 +6,11 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:04:23 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 18:30:57 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:12:19 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "ft_printf.h"
+#include "ft_printf.h"
 
 int ft_put_uintmax_hex(uintmax_t n, char *base)
 {
@@ -24,14 +24,13 @@ int ft_put_uintmax_hex(uintmax_t n, char *base)
 		write(1, &(base[n]), 1);
 		return 1;
 	}
-	return (ft_put_uintmax_hex(n / 16, "0123456789abcdef") 
-		+ ft_put_uintmax_hex(n % 16, "0123456789abcdef"));
-
+	return (ft_put_uintmax_hex(n / 16, base) 
+		+ ft_put_uintmax_hex(n % 16, base));
 }
 
 int ft_putstr(char *str)
 {
-	int len;
+	int	len;
 
 	len = -1;
 	while (str[++len])
@@ -41,7 +40,7 @@ int ft_putstr(char *str)
 
 int ft_putnchar(char c, int i)
 {
-	int len;
+	int	len;
 
 	len = i;
 	while (i-- > 0)

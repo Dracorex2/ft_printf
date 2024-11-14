@@ -6,15 +6,15 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 18:59:44 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:07:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_fmtset(t_flag	flag, va_list ap)
+int	ft_fmtset(t_flag flag, va_list ap)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (flag.fmt == 'c')
@@ -36,14 +36,14 @@ int ft_fmtset(t_flag	flag, va_list ap)
 	return (i);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list ap;
-	va_start(ap, format);
 	int		i;
 	t_flag	flag;
 	int		tot;
-	
+
+	va_start(ap, format);
 	i = -1;
 	tot = 0;
 	while (format[++i])
