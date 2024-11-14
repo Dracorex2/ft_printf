@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:16:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 14:09:00 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:04:24 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #define elif else if
 
@@ -35,6 +36,7 @@ typedef struct {
 } t_flag;
 
 int		ft_putchar(char s);
+int 	ft_purstr(char *str);
 int 	ft_printf(const char *, ...);
 int		ft_atoi(const char *nptr);
 t_flag	ft_parse(char *str, va_list ap);
@@ -46,5 +48,12 @@ size_t	ft_strlen(const char *str);
 int		ft_space(int nb);
 int 	ft_min(int a, int b);
 int		ft_char(char str, t_flag	flag);
+int		ft_nbrlen_i(int nb);
+int		ft_nbrlen_u(size_t nb, int base);
+int 	ft_put_uintmax_hex(uintmax_t n);
+int 	ft_putstr(char *str);
+int		ft_putnil(t_flag flag);
+int		ft_pointer(uintmax_t ptr, t_flag flag);
+int ft_putnchar(char c, int i);
 
 #endif

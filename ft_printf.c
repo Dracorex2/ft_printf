@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 14:11:29 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:23:13 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int ft_fmtset(t_flag	flag, va_list ap)
 	elif (flag.fmt == 's')
 		i = ft_string(va_arg(ap, char *), flag);
 	elif (flag.fmt == 'p')
-		i = ft_string(va_arg(ap, char *), flag);
+		i = ft_pointer((uintmax_t)va_arg(ap, void *), flag);
 	elif (flag.fmt == 'd' && flag.fmt == 'i')
 		i = ft_string(va_arg(ap, char *), flag);
 	elif (flag.fmt == 'u')
 		i = ft_string(va_arg(ap, char *), flag);
-	elif (flag.fmt == 'x')
-		i = ft_string(va_arg(ap, char *), flag);
+	elif (flag.fmt == 'x' && flag.fmt == 'X')
+		i = ft_string(va_arg(ap, unsigned int), flag);
 	elif (flag.fmt == '%')
 		i = ft_putchar('%');
 	return (i);
@@ -44,7 +44,7 @@ int ft_printf(const char *format, ...)
 	
 	i = -1;
 	tot = 0;
-	while (format[++i] != 0)
+	while (format[++i])
 	{
 		if (format[i] == '%')
 		{
