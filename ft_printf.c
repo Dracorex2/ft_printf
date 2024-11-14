@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 14:03:50 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:11:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_fmtset(t_flag	flag, va_list ap)
 
 	i = 0;
 	if (flag.fmt == 'c')
-		i = ft_string(va_arg(ap, char *), flag);
+		i = ft_char(va_arg(ap, int), flag);
 	elif (flag.fmt == 's')
 		i = ft_string(va_arg(ap, char *), flag);
 	elif (flag.fmt == 'p')

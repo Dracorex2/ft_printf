@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:16:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/13 19:44:24 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:09:00 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int 	ft_fmtset(t_flag	flag, va_list ap);
 void	ft_parse2(t_flag *res, char str);
 size_t	ft_strlen(const char *str);
 int		ft_space(int nb);
-int ft_min(int a, int b);
+int 	ft_min(int a, int b);
+int		ft_char(char str, t_flag	flag);
 
 #endif
