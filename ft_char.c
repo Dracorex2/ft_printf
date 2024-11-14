@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 14:34:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 13:54:43 by lucmansa         ###   ########.fr       */
+/*   Created: 2024/11/14 13:42:12 by lucmansa          #+#    #+#             */
+/*   Updated: 2024/11/14 13:47:12 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+int	ft_char(char *str, t_flag	flag)
 {
-	int i;
-	int j;
-
-	i = ft_printf("|%s|", "test");
-	printf("\no = %i", i);
-	printf("\n");
-	j = printf("|%s|", "test");
-	printf("\no = %i", j);
+	return (0);
 }
