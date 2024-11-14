@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:34:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/13 20:21:39 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:33:36 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 int	main(void)
 {
 	int i;
+	int j;
 
-	i = ft_printf("|%90.10s|", "cho");
+	i = ft_printf("|%-10.2s|", "cho");
 	printf("\no = %i", i);
+	printf("\n");
+	j = printf("|%-10.2s|", "cho");
+	printf("\no = %i", j);
 }
-    
