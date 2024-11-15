@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:36:49 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 19:16:28 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:41:41 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_nbrlen_i(int nb)
 		return (11);
 	else if (nb < 0)
 		return (1 + ft_nbrlen_i(-nb));
-	else
+	else if (nb > 9)
 		return (1 + ft_nbrlen_i(nb / 10));
+	else
+		return (1);
 }

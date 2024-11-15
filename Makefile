@@ -6,8 +6,9 @@ SRCS_DIR = srcs/
 
 NAME = libftprintf.a
 
-FILES = ft_hex.c    ft_pointer.c  ft_printf.h  utils3.c\
-ft_char.c  ft_parse.c  ft_printf.c   ft_string.c   utils2.c   utils.c
+FILES = ft_hex.c    ft_pointer.c   utils3.c\
+ft_char.c  ft_parse.c  ft_printf.c   ft_string.c   utils2.c\
+utils.c  ft_int_dec.c
 
 
 

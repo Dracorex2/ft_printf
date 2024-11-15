@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:16:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 19:03:51 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:07:55 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,9 @@ int		ft_hex(unsigned int nb, t_flag flag);
 int		ft_hex_hash(t_flag flag, unsigned int nb);
 int		ft_hex_maj(unsigned int nb, t_flag flag);
 int		ft_hex_hash_maj(t_flag flag, unsigned int nb);
+int		ft_int_dec(int nb, t_flag flag);
+int 	ft_putnbr(int n);
+int		ft_int_dec_zero(int nb, t_flag flag);
+int		ft_int_dec_plus(int nb, t_flag flag);
 
 #endif
