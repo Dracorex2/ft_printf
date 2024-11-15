@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
+/*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 13:42:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 17:24:46 by lucmansa         ###   ########.fr       */
+/*   Created: 2024/11/15 15:11:06 by lucmansa          #+#    #+#             */
+/*   Updated: 2024/11/15 17:43:12 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_char(char c, t_flag	flag)
+int ft_putnstr(char *str, int n)
 {
 	int	len;
 
 	len = 0;
-	if (!flag.minus && flag.first)
-		len += ft_space(flag.first - 1) + ft_putchar(c);
-	else if (flag.minus && flag.first)
-		len += ft_putchar(c) + ft_space(flag.first - 1);
+	while (n--)
+		write(1, &str[len++], 1);
+	return (len);
+}
+
+int ft_null(t_flag flag)
+{
+	int	len;
+
+	len = 0;
+	if (flag.first)
+		len += ft_space(flag.first);
 	else
-		len += ft_putchar(c);
+		len += 0;
 	return (len);
 }

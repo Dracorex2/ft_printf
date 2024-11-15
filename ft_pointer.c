@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:32:00 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 19:11:23 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:04:37 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	ft_pointer(uintmax_t ptr, t_flag flag)
 		len += ft_putstr("0x") + ft_put_uintmax_hex(ptr, "0123456789abcdef")
 			+ ft_space(flag.first - ft_nbrlen_u(ptr, 16) - 2);
 	else
-		len += ft_put_uintmax_hex(ptr, "0123456789abcdef");
+		len += ft_putstr("0x") + ft_put_uintmax_hex(ptr, "0123456789abcdef");
 	return (len);
 }

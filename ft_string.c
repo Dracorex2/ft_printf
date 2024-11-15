@@ -6,63 +6,31 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:43:24 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 19:15:56 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:38:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strprntchr(t_flag flag, char *str)
-{
-	int len;
-	int	i;
-
-	len = 0;
-	i = -1;
-	if (flag.sec && (size_t)flag.sec < ft_strlen(str))
-	{
-		while (flag.sec--)
-			len += ft_putchar(str[++i]);
-	}
-	else
-		while (str[++i])
-			len += ft_putchar(str[i]);
-	return (len);
-}
-
-int	ft_putstringmin(t_flag flag, char *str)
+int	ft_string_null(t_flag	flag)
 {
 	int	len;
 
 	len = 0;
-	if (flag.sec)
-	{
-		len += ft_strprntchr(flag, str);
-		len += ft_space(flag.first - ft_min(ft_strlen(str), flag.sec));
-	}
+	if (!flag.minus && flag.first && !flag.sec && !flag.point)
+		 len += ft_space(flag.first -  6) + ft_putstr("(null)");
+	else if (flag.minus && flag.first && !flag.sec && !flag.point)
+		 len += ft_putstr("(null)") + ft_space(flag.first - 6);
+	else if (!flag.minus && flag.first && flag.sec > 6)
+		 len += ft_space(flag.first - 6) + ft_putstr("(null)");
+	else if (flag.minus && flag.first && flag.sec > 6)
+		 len += ft_putstr("(null)") + ft_space(flag.first - 6);
+	else if (flag.first && flag.sec < 6)
+		 len += ft_space(flag.first);
+	else if ((flag.sec >=0 && flag.sec < 6) && flag.point)
+		len = 0;
 	else
-	{
-		len += ft_strprntchr(flag, str);
-		len += ft_space(flag.first - ft_strlen(str));
-	}
-	return (len);
-}
-
-int	ft_putstringplus(t_flag flag, char *str)
-{
-	int	len;
-
-	len = 0;
-	if (flag.sec)
-	{
-		len += ft_space(flag.first - ft_min(ft_strlen(str), flag.sec));
-		len += ft_strprntchr(flag, str);
-	}
-	else
-	{
-		len += ft_space(flag.first - ft_strlen(str));
-		len += ft_strprntchr(flag, str);
-	}
+		len += ft_putstr("(null)");
 	return (len);
 }
 
@@ -71,11 +39,23 @@ int	ft_string(char *str, t_flag	flag)
 	int	len;
 
 	len = 0;
-	if (!flag.minus && flag.first)
-		 len += ft_putstringplus(flag, str);
-	else if (flag.minus && flag.first)
-		len += ft_putstringmin(flag, str);
+	if (!str)
+		len += ft_string_null(flag);
+	else if (flag.point && !flag.sec)
+		len += ft_null(flag);
+	else if (!flag.minus && flag.first && !flag.sec)
+		 len += ft_space(flag.first - ft_strlen(str)) + ft_putstr(str);
+	else if (flag.minus && flag.first && !flag.sec)
+		 len += ft_putstr(str) + ft_space(flag.first - ft_strlen(str));
+	else if (!flag.minus && flag.first && flag.sec)
+		 len += ft_space(flag.first - ft_min(flag.sec, ft_strlen(str)))
+		 	+ ft_putnstr(str, ft_min(flag.sec, ft_strlen(str)));
+	else if (flag.minus && flag.first && flag.sec)
+		 len += ft_putnstr(str, ft_min(flag.sec, ft_strlen(str)))
+		 	+ ft_space(flag.first - ft_min(flag.sec, ft_strlen(str)));
+	else if (flag.sec)
+		len += ft_putnstr(str, ft_min(flag.sec, ft_strlen(str)));
 	else
-		len += ft_strprntchr(flag, str);
+		len += ft_putstr(str);
 	return (len);
 }

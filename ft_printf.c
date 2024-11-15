@@ -6,7 +6,7 @@
 /*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 12:05:53 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:30:10 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_fmtset(t_flag flag, va_list ap)
 	else if (flag.fmt == 'd' || flag.fmt == 'i')
 		i = ft_int_dec(va_arg(ap, int), flag);
 	else if (flag.fmt == 'u')
-		i = ft_string(va_arg(ap, char *), flag);
+		i = ft_uint(va_arg(ap, unsigned int), flag);
 	else if (flag.fmt == 'x')
 		i = ft_hex(va_arg(ap, unsigned int), flag);
 	else if (flag.fmt == 'X')
