@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:42:12 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 17:24:46 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:07:45 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_char(char c, t_flag	flag)
 {
-	int	len;
+	int	prnt;
 
-	len = 0;
+	prnt = 0;
 	if (!flag.minus && flag.first)
-		len += ft_space(flag.first - 1) + ft_putchar(c);
+		prnt += ft_putnchar(' ', flag.first - 1) + ft_putchar(c);
 	else if (flag.minus && flag.first)
-		len += ft_putchar(c) + ft_space(flag.first - 1);
+		prnt += ft_putchar(c) + ft_putnchar(' ', flag.first - 1);
 	else
-		len += ft_putchar(c);
-	return (len);
+		prnt += ft_putchar(c);
+	return (prnt);
 }

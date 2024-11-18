@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:27:13 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/14 13:32:26 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:48:55 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ int	ft_putchar(char s)
 	return (1);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_abs_atoi(const char *nptr)
 {
 	int	nbr;
 	int	i;
 
 	nbr = 0;
 	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
-		i++;
-	while (nptr[i] == '-' || nptr[i] == '+')
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r')
+		|| nptr[i] == '-' || nptr[i] == '+')
 		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		nbr = nbr * 10 + (nptr[i++] - '0');

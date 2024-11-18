@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:16:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 17:44:01 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:47:17 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_flag
 int		ft_putchar(char s);
 int		ft_putstr(char *str);
 int		ft_printf(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
-int		ft_atoi(const char *nptr);
+int		ft_abs_atoi(const char *nptr);
 t_flag	ft_parse(char *str, va_list ap);
 bool	ft_ischarset(char c);
 int		ft_string(char *str, t_flag	flag);
