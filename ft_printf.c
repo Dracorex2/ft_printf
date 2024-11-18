@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 17:30:10 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:19:04 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ int	ft_fmtset(t_flag flag, va_list ap)
 		i = ft_int_dec(va_arg(ap, int), flag);
 	else if (flag.fmt == 'u')
 		i = ft_uint(va_arg(ap, unsigned int), flag);
-	else if (flag.fmt == 'x')
-		i = ft_hex(va_arg(ap, unsigned int), flag);
-	else if (flag.fmt == 'X')
-		i = ft_hex_maj(va_arg(ap, unsigned int), flag);
+	else if (flag.fmt == 'x' || flag.fmt == 'X')
+		i = ft_hex(va_arg(ap, unsigned long int), flag);
 	else if (flag.fmt == '%')
-		i = ft_putchar('%');
+		i = ft_putnchar('%', 1);
 	return (i);
 }
 
@@ -55,7 +53,7 @@ int	ft_printf(const char *format, ...)
 			tot += ft_fmtset(flag, ap);
 		}
 		else
-			tot += ft_putchar(format[i]);
+			tot += ft_putnchar(format[i], 1);
 	}
 	va_end(ap);
 	return (tot);

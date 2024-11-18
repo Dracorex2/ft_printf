@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_uint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucmansa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:37:56 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/15 14:45:14 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:31:26 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 int		ft_uint(unsigned int nb, t_flag flag)
 {
-	int len;
+	int	len;
+	int	prnt;
 
-	len = 0;
-	if (flag.zero)
-		len += ft_putnchar('0', flag.first - ft_nbrlen_u(nb, 10))
-			+ ft_put_uintmax_hex(nb, "0123456789");
-	else if (!flag.minus && flag.first)
-		len += ft_space(flag.first - ft_nbrlen_u(nb, 10))
-			+ ft_put_uintmax_hex(nb, "0123456789");
-	else if (flag.minus && flag.first)
-		len += ft_put_uintmax_hex(nb, "0123456789") + ft_space(flag.first
-			- ft_nbrlen_u(nb, 10)) ;
-
-	else if (flag.sec)
-		len += ft_putnchar('0', flag.sec - ft_nbrlen_u(nb, 10))
-			+ ft_put_uintmax_hex(nb, "0123456789");
-	else
-		len += ft_put_uintmax_hex(nb, "0123456789");
-	return (len);
+	prnt = 0;
+	len = ft_nbrlen_i(nb, 10);
+	if (flag.point && ((flag.sec > len) || (!flag.sec && !nb)))
+		len = flag.sec;
+	flag.zero &= !(flag.point || flag.minus);
+	if (!flag.minus && flag.first && !flag.zero)
+		prnt += ft_putnchar(' ', flag.first - len);
+	if (flag.zero && flag.first - prnt > len)
+		len = flag.first - prnt;
+	prnt += ft_putnchar('0', len - ft_nbrlen_i(nb, 10));
+	if (len != 0)
+		prnt += ft_putnbrbase(nb, "0123456789");
+	if (flag.minus && flag.first > prnt)
+		prnt += ft_putnchar(' ', flag.first - prnt);
+	return (prnt);
 }

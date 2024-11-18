@@ -6,17 +6,11 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:27:13 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 13:48:55 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:04:37 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(char s)
-{
-	write(1, &s, 1);
-	return (1);
-}
 
 int	ft_abs_atoi(const char *nptr)
 {
@@ -52,5 +46,15 @@ size_t	ft_strlen(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
+	return (i);
+}
+
+int ft_putnstr(char *str, int n)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && (n < 0 || i < n))
+		i += ft_putnchar(str[i], 1);
 	return (i);
 }

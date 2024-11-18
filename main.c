@@ -6,13 +6,13 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:34:48 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 13:01:43 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 20:45:14 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define ARGS "neg9 %15.3s", "coucou"
+#define ARGS "%29p" , 0xf856c9276eecfe4
 
 int	main(void)
 {

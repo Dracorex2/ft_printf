@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:43:24 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 13:04:48 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:10:51 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	ft_string(char *str, t_flag	flag)
 	if (flag.point && flag.sec < len)
 		len = flag.sec;
 	if (!flag.minus && flag.first)
-		prnt += ft_putnchar(' ', flag.first - len);
-	prnt += ft_putnstr(str, len);
-	if (flag.minus && flag.first)
-		prnt += ft_putnchar(' ', flag.first - len);
+		prnt += ft_putnchar(' ', flag.first - len) + ft_putnstr(str, len);
+	else if (flag.minus && flag.first)
+		prnt += ft_putnstr(str, len) + ft_putnchar(' ', flag.first - len);
+	else
+		prnt += ft_putnstr(str, len);
 	return (prnt);
 }
