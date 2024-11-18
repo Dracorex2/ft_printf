@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:05:42 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 21:20:08 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/19 00:01:30 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_hex(unsigned int nb, t_flag flag)
 		len = flag.sec;
 	flag.zero &= !(flag.minus || flag.point);
 	if (!flag.minus && !flag.zero && flag.first > prnt + len)
-		prnt += ft_putnchar(' ', flag.first - (prnt + len));
+		prnt += ft_putnchar(' ', flag.first - (prnt + len) - (flag.hash * 2));
 	prnt += ft_putnchar('0', nb && flag.hash)
 		+ ft_putnchar(flag.fmt, nb && flag.hash);
 	if (flag.zero && flag.first > prnt + len)

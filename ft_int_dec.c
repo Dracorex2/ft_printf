@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:52:30 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 21:11:29 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:03:30 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_int_dec(int nb, t_flag flag)
 	prnt += ft_putnchar(' ', nb >= 0 && flag.space);
 	if (!flag.minus && flag.first && !flag.zero)
 		prnt += ft_putnchar(' ', flag.first - (len + prnt
-					+ (nb < 0 || flag.plus || flag.space)));
+					+ (nb < 0 || flag.plus)));
 	prnt += ft_putnchar('-', nb < 0);
 	prnt += ft_putnchar('+', nb >= 0 && flag.plus);
 	if (flag.zero && flag.first - prnt > len)
