@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:43:24 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 19:10:51 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:18:47 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_string(char *str, t_flag	flag)
 	if (!str)
 	{
 		str = "";
-			if (!flag.point || flag.sec >= 6)
-				str = "(null)";
+		if (!flag.point || flag.sec >= 6)
+			str = "(null)";
 	}
 	len = ft_strlen(str);
 	if (flag.point && flag.sec < len)

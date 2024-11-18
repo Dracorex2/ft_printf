@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:27:13 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 19:04:37 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:24:15 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	ft_abs_atoi(const char *nptr)
 
 bool	ft_ischarset(char c)
 {
-	const char * charsert = "cspdiuxX%";
-	int i;
+	const char	*charsert = "cspdiuxX%";
+	int			i;
 
 	i = -1;
 	while (charsert[++i])
@@ -49,7 +49,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-int ft_putnstr(char *str, int n)
+int	ft_putnstr(char *str, int n)
 {
 	int	i;
 

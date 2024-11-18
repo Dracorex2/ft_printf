@@ -6,13 +6,13 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:04 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 19:19:04 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:22:30 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_fmtset(t_flag flag, va_list ap)
+static int	ft_fmtset(t_flag flag, va_list ap)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_fmtset(t_flag flag, va_list ap)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list ap;
+	va_list	ap;
 	int		i;
 	t_flag	flag;
 	int		tot;

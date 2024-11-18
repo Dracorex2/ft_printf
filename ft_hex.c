@@ -6,24 +6,23 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:05:42 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 19:30:58 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:20:08 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-int		ft_hex(unsigned int nb, t_flag flag)
+int	ft_hex(unsigned int nb, t_flag flag)
 {
-	int	prnt;
-	int	len;
-	char *base;
+	int		prnt;
+	int		len;
+	char	*base;
 
 	base = "0123456789abcdef";
 	if (flag.fmt == 'X')
 		base = "0123456789ABCDEF";
 	prnt = 0;
-	len = ft_nbrlen_i(nb, 16);
+	len = ft_nbrlen(nb, 16);
 	if (flag.point && ((flag.sec > len) || (!flag.sec && !nb)))
 		len = flag.sec;
 	flag.zero &= !(flag.minus || flag.point);
@@ -33,7 +32,7 @@ int		ft_hex(unsigned int nb, t_flag flag)
 		+ ft_putnchar(flag.fmt, nb && flag.hash);
 	if (flag.zero && flag.first > prnt + len)
 		len = flag.first - prnt;
-	prnt += ft_putnchar('0', len - ft_nbrlen_i(nb, 16));
+	prnt += ft_putnchar('0', len - ft_nbrlen(nb, 16));
 	if (len != 0)
 		prnt += ft_putnbrbase(nb, base);
 	if (flag.minus && flag.first > prnt)

@@ -6,7 +6,7 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:52:30 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 19:32:51 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:11:29 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_int_dec(int nb, t_flag flag)
 	flag.zero &= !(flag.point || flag.minus);
 	flag.space &= !flag.plus;
 	prnt = 0;
-	len = ft_nbrlen_i(nb, 10);
+	len = ft_nbrlen(nb, 10);
 	if (flag.point && ((flag.sec > len) || (flag.sec == 0 && nb == 0)))
 		len = flag.sec;
 	prnt += ft_putnchar(' ', nb >= 0 && flag.space);
@@ -31,7 +31,7 @@ int	ft_int_dec(int nb, t_flag flag)
 	prnt += ft_putnchar('+', nb >= 0 && flag.plus);
 	if (flag.zero && flag.first - prnt > len)
 		len = flag.first - prnt;
-	prnt += ft_putnchar('0', len - ft_nbrlen_i(nb, 10));
+	prnt += ft_putnchar('0', len - ft_nbrlen(nb, 10));
 	if (len)
 		prnt += ft_putnbrbase(nb * (-(nb < 0) + (nb > 0)), "0123456789");
 	if (flag.minus && flag.first > prnt)

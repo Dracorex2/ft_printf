@@ -6,13 +6,13 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:27:10 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 20:23:57 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:22:20 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_parse2(t_flag *res, char c)
+static void	ft_parse2(t_flag *res, char c)
 {
 	if (c == '+')
 		res->plus = 1;
@@ -33,8 +33,8 @@ void	ft_parse2(t_flag *res, char c)
 t_flag	ft_parse(char *str, va_list ap)
 {
 	t_flag	res;
-	int i;
-	
+	int		i;
+
 	res = (t_flag){0};
 	i = -1;
 	while (!ft_ischarset(str[++i]))
@@ -44,14 +44,14 @@ t_flag	ft_parse(char *str, va_list ap)
 			res.first = va_arg(ap, int);
 		else if (str[i] == '*' && res.point && !res.sec)
 			res.sec = va_arg(ap, int);
-		else if (str[i] >= '1' && str[i] <= '9'  && !res.point && !res.first)
+		else if (str[i] >= '1' && str[i] <= '9' && !res.point && !res.first)
 			res.first = ft_abs_atoi(&str[i]);
 		else if (str[i] >= '1' && str[i] <= '9' && res.point && !res.sec)
 			res.sec = ft_abs_atoi(&str[i]);
 		if (res.sec < 0)
 			res.point = 0;
 		if (res.first < 0)
-				res.minus = 1;
+			res.minus = 1;
 		res.first = res.first * (-(res.first < 0) + (res.first > 0));
 	}
 	res.size = i;

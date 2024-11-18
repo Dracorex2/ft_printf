@@ -6,24 +6,23 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:36:49 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 20:55:23 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:23:36 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_nbrlen_i(long int nb, int base)
+unsigned int	ft_nbrlen(long int nb, int base)
 {
 	if (nb < 0)
 		nb = -nb;
 	if (nb < base)
 		return (1);
-	return (1 + ft_nbrlen_i(nb / base, base));
+	return (1 + ft_nbrlen(nb / base, base));
 }
 
-int ft_putnbrbase(unsigned long int n, char *base)
+int	ft_putnbrbase(unsigned long int n, char *base)
 {
-
 	if (n == 0)
 	{
 		write(1, "0", 1);
@@ -37,13 +36,13 @@ int ft_putnbrbase(unsigned long int n, char *base)
 	if (n < ft_strlen(base))
 	{
 		write(1, &(base[n]), 1);
-		return 1;
+		return (1);
 	}
-	return (ft_putnbrbase(n / ft_strlen(base), base) 
+	return (ft_putnbrbase(n / ft_strlen(base), base)
 		+ ft_putnbrbase(n % ft_strlen(base), base));
 }
 
-int ft_putnchar(char c, int i)
+int	ft_putnchar(char c, int i)
 {
 	int	len;
 

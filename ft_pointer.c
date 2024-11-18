@@ -6,13 +6,13 @@
 /*   By: lucmansa <lucmansa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:32:00 by lucmansa          #+#    #+#             */
-/*   Updated: 2024/11/18 20:57:54 by lucmansa         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:21:10 by lucmansa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexalen(unsigned long nbr)
+static int	ft_ptrlen(unsigned long nbr)
 {
 	int	count;
 
@@ -31,11 +31,11 @@ int	ft_pointer(uintmax_t ptr, t_flag flag)
 
 	printed = 0;
 	if (!flag.minus && ptr)
-		printed += ft_putnchar(' ', flag.first - ft_hexalen(ptr) - 2);
+		printed += ft_putnchar(' ', flag.first - ft_ptrlen(ptr) - 2);
 	else if (!flag.minus && !ptr)
 		printed += ft_putnchar(' ', flag.first - 5);
 	if (!ptr)
-			printed += ft_putnstr("(nil)", 5);
+		printed += ft_putnstr("(nil)", 5);
 	else
 	{
 		printed += ft_putnstr("0x", 2);
